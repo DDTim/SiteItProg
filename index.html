@@ -37,6 +37,32 @@
               </a>     
         </div>
     </header>
+        <nav>   
+                <div id = "menuShow">
+                    <i class="fa fa-bars" area-hidden = "true"></i>
+                </div>
+                <div id = "hideMenu">
+                    <a href="">Обновления</a>
+                    <a href="">Видеокурсы</a>
+                    <a href="">Сайты на показ</a>
+                    <a href="">Форум</a>
+                    <a href="">Задачи</a>
+                </div>
+                    <div id = "search">
+                    <span>Поиск</span>
+                    <i class="fa fa-search" area-hidden = "true"></i>
+                </div>
+                <div id = "mobileMenu">
+                        <a href="">Обновления</a><br>
+                        <a href="">Видеокурсы</a><br>
+                        <a href="">Сайты на показ</a><br>
+                        <a href="">Форум</a><br>
+                        <a href="">Задачи</a>
+                        <hr>
+                        <a href="">Регистрация</a>
+                        <a href="">Войти</a>
+                </div>
+        </nav>
     </div>
     <footer>
         <div id = "site_name">
@@ -60,5 +86,27 @@
         </div>
     </footer>
     </div>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script>
+        $('#menuShow').click (function(){
+            if($('#mobileMenu').is(':visible'))
+                $('#mobileMenu').hide();
+            else
+                $('#mobileMenu').show();
+        });
+
+        $(document).scroll(function(){
+            if($(document).width() > 785){
+            if($(document).scrollTop () >$('header').height() +10)
+                $('nav').addClass('fixed');
+            else
+                $('nav').removeClass('fixed');
+            }
+        });
+
+        window.onresize = function (event){
+            $('#mobileMenu').hide();
+        };
+    </script>
 </body>
 </html>
